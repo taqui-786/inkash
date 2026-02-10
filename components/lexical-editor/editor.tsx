@@ -17,6 +17,7 @@ import LinkPlugin from "./plugins/link-plugin";
 import ListPlugin from "./plugins/list-plugin";
 import EditableStatePlugin from "./plugins/editable-state-plugin";
 import OnChangeWrapper from "./plugins/on-change-plugin";
+import InitialContentPlugin from "./plugins/initial-content-plugin";
 
 import { $getRoot, type EditorState } from "lexical";
 import { Button } from "../ui/button";
@@ -82,7 +83,7 @@ export default function LexicalEditor({
   };
 
   return (
-    <div className="notebook-page">
+    <div className="notebook-page w-full max-w-5xl mx-auto rounded-2xl overflow-hidden">
       {/* Header */}
       <header className="flex items-center justify-between md:px-8 px-4 pt-6 pb-4 border-b">
         <span className="notebook-date text-xs sm:text-sm">
@@ -100,7 +101,7 @@ export default function LexicalEditor({
           ) : (
             <HugeiconsIcon icon={NoteEditIcon} />
           )}
-            {isEditing ? "Preview" : "Edit"}
+          {isEditing ? "Preview" : "Edit"}
         </Button>
       </header>
 
@@ -118,7 +119,7 @@ export default function LexicalEditor({
           <div className="lexical-editor-inner">
             <RichTextPlugin
               contentEditable={
-                <ContentEditable className="lexical-editor-input focus:outline-none min-h-[420px] md:px-8 px-4 py-6 outline-none text-foreground resize-none overflow-auto leading-relaxed font-medium" />
+                <ContentEditable className="lexical-editor-input focus:outline-none min-h-[420px] md:px-8 px-4 py-6 outline-none text-foreground resize-none overflow-auto leading-relaxed font-normal font-mono" />
               }
               placeholder={
                 <div className="lexical-editor-placeholder">
@@ -138,6 +139,7 @@ export default function LexicalEditor({
             <EditableStatePlugin editable={isEditing} />
             <OnChangePlugin onChange={handleEditorChange} />
             {onChange && <OnChangeWrapper onChange={onChange} />}
+            <InitialContentPlugin initialMarkdown={initialValue} />
           </div>
         </div>
       </LexicalComposer>
@@ -147,13 +149,9 @@ export default function LexicalEditor({
         <span className="  text-muted-foreground/70 font-medium tracking-wide text-xs sm:text-sm">
           {calculateReadingTime(wordCount)}
         </span>
-        <Button
-          size="lg"
-          onClick={() => {}}
-          aria-label="Share"
-        >
+        <Button size="lg" onClick={() => {}} aria-label="Share">
           <HugeiconsIcon icon={ShareIcon} />
-         Share
+          Share
         </Button>
       </footer>
     </div>

@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     template: "%s | Inkash",
   },
   description:
-    "Inkash lets you create Markdown documents or Canvas drawings stored directly in the URL. No sign-ups, no cloud storage, no cookies. Your content is the link. Instant sharing, completely private.",
+    "Inkash lets you create Markdown documents stored directly in the URL. No sign-ups, no cloud storage, no cookies. Your content is the link. Instant sharing, completely private.",
   keywords: [
     "markdown editor",
     "url storage",
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     siteName: "Inkash",
     title: "Inkash - Your Content in the URL",
     description:
-      "Create Markdown documents or Canvas drawings stored directly in the URL. No sign-ups, no cloud storage. Your content is the link. Instant sharing, completely private.",
+      "Create Markdown documents stored directly in the URL. No sign-ups, no cloud storage. Your content is the link. Instant sharing, completely private.",
     images: [
       {
         url: "/og-image.png", // Add your Open Graph image
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Inkash - Your Content in the URL",
     description:
-      "Create Markdown or Canvas drawings stored in the URL. No accounts, no cloud storage. Your content is the link.",
+      "Create Markdown stored in the URL. No accounts, no cloud storage. Your content is the link.",
     creator: "@yourtwitterhandle", // Update with your Twitter handle
     images: ["/og-image.png"], // Add your Twitter card image
   },
