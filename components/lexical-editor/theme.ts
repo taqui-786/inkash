@@ -1,23 +1,23 @@
 import type { EditorThemeClasses } from "lexical";
 
 export const editorTheme: EditorThemeClasses = {
-  paragraph: "mb-2 text-base leading-relaxed",
-  quote: "border-l-4 border-primary pl-4 italic text-muted-foreground my-4",
+  paragraph: "mb-0 text-[0.98rem] leading-7 text-foreground/90",
+  quote: "border-l-4 border-primary pl-4 italic text-muted-foreground my-7",
   heading: {
-    h1: "text-4xl font-bold mb-4 mt-6",
-    h2: "text-3xl font-bold mb-3 mt-5",
-    h3: "text-2xl font-semibold mb-2 mt-4",
-    h4: "text-xl font-semibold mb-2 mt-3",
-    h5: "text-lg font-semibold mb-1 mt-2",
-    h6: "text-base font-semibold mb-1 mt-2",
+    h1: "text-4xl font-semibold mt-7 mb-0 leading-7 font-display tracking-tight",
+    h2: "text-3xl font-semibold mt-7 mb-0 leading-7 font-display tracking-tight",
+    h3: "text-2xl font-semibold mt-7 mb-0 leading-7 font-display tracking-tight",
+    h4: "text-xl font-semibold mt-7 mb-0 leading-7 font-display tracking-tight",
+    h5: "text-lg font-semibold mt-7 mb-0 leading-7 font-display tracking-tight",
+    h6: "text-base font-semibold mt-7 mb-0 leading-7 font-display tracking-tight",
   },
   list: {
     nested: {
       listitem: "list-none",
     },
-    ol: "list-decimal list-outside ml-6 my-2",
-    ul: "list-disc list-outside ml-6 my-2",
-    listitem: "mb-1",
+    ol: "list-decimal list-outside ml-6 my-0",
+    ul: "list-disc list-outside ml-6 my-0",
+    listitem: "mb-0",
     listitemChecked:
       'relative pl-7 list-none before:content-["✓"] before:absolute before:left-0 before:text-primary before:font-bold',
     listitemUnchecked:
@@ -34,7 +34,7 @@ export const editorTheme: EditorThemeClasses = {
     underline: "underline",
     underlineStrikethrough: "underline line-through",
   },
-  code: "block bg-muted text-foreground font-mono text-sm p-4 rounded my-4 overflow-x-auto",
+  code: "block bg-muted text-foreground font-mono text-sm p-4 rounded my-7 overflow-x-auto",
   codeHighlight: {
     atrule: "text-purple-600 dark:text-purple-400",
     attr: "text-cyan-600 dark:text-cyan-400",

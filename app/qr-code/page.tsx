@@ -26,7 +26,9 @@ export default function QrCodePage() {
           <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
             QR Code
           </p>
-          <h1 className="mt-2 text-lg font-semibold">No hash provided</h1>
+          <h1 className="mt-2 text-lg font-semibold font-display">
+            No hash provided
+          </h1>
           <p className="mt-2 text-sm text-muted-foreground">
             Return to the editor to generate a shareable link first.
           </p>
@@ -39,14 +41,16 @@ export default function QrCodePage() {
   }
 
   return (
-    <div className="flex-1 w-full  flex items-center justify-center">
+    <div className="flex-1 w-full flex items-center justify-center px-4 py-2">
       <div className="w-full max-w-full md:max-w-2xl md:rounded-2xl md:border bg-card md:p-6 p-4 md:shadow-sm">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">
               Scan to Open
             </p>
-            <h1 className="mt-1 text-lg font-semibold">Inkash Share</h1>
+            <h1 className="mt-1 text-lg font-semibold font-display">
+              Inkash Share
+            </h1>
           </div>
           {shareUrl && (
             <Button size="sm" variant="secondary" asChild>

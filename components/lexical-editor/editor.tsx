@@ -160,7 +160,7 @@ export default function LexicalEditor({
   return (
     <div className="notebook-page w-full max-w-5xl mx-auto rounded-2xl overflow-hidden">
       {/* Header */}
-      <header className="flex items-center justify-between md:px-8 px-4 pt-6 pb-4 border-b">
+      <header className="flex items-center justify-between md:px-8 px-4 pt-6 pb-4 border-b bg-background/70 backdrop-blur">
         <span className="notebook-date text-xs sm:text-sm">
           {formatDate(new Date())}
         </span>
@@ -194,7 +194,7 @@ export default function LexicalEditor({
           <div className="lexical-editor-inner">
             <RichTextPlugin
               contentEditable={
-                <ContentEditable className="lexical-editor-input focus:outline-none min-h-[420px] md:px-8 px-4 py-6 outline-none text-foreground resize-none overflow-auto leading-relaxed font-normal font-mono" />
+                <ContentEditable className="lexical-editor-input focus:outline-none min-h-[420px] md:px-8 px-4 py-6 outline-none text-foreground resize-none overflow-auto text-[0.98rem] leading-7 font-normal font-sans" />
               }
               placeholder={
                 <div className="lexical-editor-placeholder">
@@ -225,8 +225,8 @@ export default function LexicalEditor({
       </LexicalComposer>
 
       {/* Footer */}
-      <footer className="flex items-center justify-between md:px-8 px-4 py-4 border-t">
-        <span className="  text-muted-foreground/70 font-medium tracking-wide text-xs sm:text-sm">
+      <footer className="flex items-center justify-between md:px-8 px-4 py-4 border-t bg-background/70 backdrop-blur">
+        <span className="text-muted-foreground/70 font-medium tracking-wide text-xs sm:text-sm">
           {calculateReadingTime(wordCount)}
         </span>
         <AlertDialog onOpenChange={(open) => open && refreshShareData()}>
@@ -238,7 +238,9 @@ export default function LexicalEditor({
           </AlertDialogTrigger>
           <AlertDialogContent className="w-[min(92vw,540px)] max-w-md gap-4">
             <AlertDialogHeader className="gap-2 text-left sm:text-left sm:place-items-start">
-              <AlertDialogTitle>Share this link</AlertDialogTitle>
+              <AlertDialogTitle className="font-display text-base">
+                Share this link
+              </AlertDialogTitle>
               <AlertDialogDescription>
                 Copy the full URL with your hash, or generate a QR code.
               </AlertDialogDescription>
