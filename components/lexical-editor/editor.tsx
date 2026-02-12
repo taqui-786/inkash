@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { LexicalComposer } from "@lexical/react/LexicalComposer";
 import { RichTextPlugin } from "@lexical/react/LexicalRichTextPlugin";
 import { ContentEditable } from "@lexical/react/LexicalContentEditable";
@@ -28,6 +28,7 @@ import {
   ViewIcon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
+import { useParams } from "next/navigation";
 
 interface LexicalEditorProps {
   onChange?: (editorState: EditorState, markdown: string) => void;
@@ -56,7 +57,7 @@ export default function LexicalEditor({
 }: LexicalEditorProps) {
   const [mode, setMode] = useState<"preview" | "edit">("preview");
   const [wordCount, setWordCount] = useState(0);
-
+  const router = useParams();
   const isEditing = mode === "edit";
 
   const initialConfig = {
@@ -78,9 +79,11 @@ export default function LexicalEditor({
     });
   }, []);
 
+
   const toggleMode = () => {
     setMode((prev) => (prev === "preview" ? "edit" : "preview"));
   };
+
 
   return (
     <div className="notebook-page w-full max-w-5xl mx-auto rounded-2xl overflow-hidden">

@@ -1,8 +1,3 @@
-// ─────────────────────────────────────────────────────────────
-// Inkash – Advanced DEFLATE Encode / Decode System
-// Lossless compression of DeflateContentObjectType ↔ URL-safe string
-// Uses browser-native CompressionStream API (zero dependencies)
-// ─────────────────────────────────────────────────────────────
 
 export const DEFLATE_VERSION = 1;
 
@@ -44,7 +39,7 @@ function base64urlToUint8(str: string): Uint8Array {
 async function compressRaw(data: Uint8Array): Promise<Uint8Array> {
   const cs = new CompressionStream("deflate-raw");
   const writer = cs.writable.getWriter();
-  // @ts-ignore — TS 5.6+ Uint8Array generic mismatch with CompressionStream
+  // @ts-ignore 
   writer.write(data);
   writer.close();
 
@@ -71,7 +66,7 @@ async function compressRaw(data: Uint8Array): Promise<Uint8Array> {
 async function decompressRaw(data: Uint8Array): Promise<Uint8Array> {
   const ds = new DecompressionStream("deflate-raw");
   const writer = ds.writable.getWriter();
-  // @ts-ignore — TS 5.6+ Uint8Array generic mismatch with DecompressionStream
+  // @ts-ignore 
   writer.write(data);
   writer.close();
 
@@ -95,9 +90,7 @@ async function decompressRaw(data: Uint8Array): Promise<Uint8Array> {
   return result;
 }
 
-// ── Key minification for extreme compression ────────────────
-// Maps full property names ↔ single-char keys to reduce JSON size
-// before DEFLATE compression for even shorter output strings.
+
 
 const KEY_MAP: Record<string, string> = {
   v: "v",
@@ -136,10 +129,6 @@ function expandKeys(
 // ── Public API ──────────────────────────────────────────────
 
 /**
- * Encode a `DeflateContentObjectType` into a compact URL-safe string.
- *
- * Pipeline: Object → minify keys → JSON → UTF-8 → DEFLATE-raw → Base64url
- *
  * @param obj - The content object to encode
  * @returns A short, URL-safe encoded string
  */
@@ -159,10 +148,6 @@ export async function deflateEncode(
 }
 
 /**
- * Decode a compact URL-safe string back to `DeflateContentObjectType`.
- *
- * Pipeline: Base64url → DEFLATE-inflate → UTF-8 → JSON → expand keys → validate
- *
  * @param encoded - The encoded string (from `deflateEncode`)
  * @returns The fully reconstructed content object (zero data loss)
  * @throws Error if the string is invalid, corrupt, or missing required fields
@@ -194,10 +179,6 @@ export async function deflateDecode(
   return obj;
 }
 
-/**
- * Safely attempt to decode — returns `null` on any failure instead of throwing.
- * Useful for reading from URL hash where data may be absent or corrupt.
- */
 export async function deflateTryDecode(
   encoded: string | undefined | null,
 ): Promise<DeflateContentObjectType | null> {
@@ -209,9 +190,6 @@ export async function deflateTryDecode(
   }
 }
 
-/**
- * Create a default `DeflateContentObjectType` with sensible defaults.
- */
 export function createDeflateContent(
   content: string,
   options?: Partial<Omit<DeflateContentObjectType, "v" | "content">>,

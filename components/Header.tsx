@@ -40,12 +40,15 @@ function Header() {
               Github
             </Button>
           </a>
-          <Link href="/">
-            <Button size="lg">
+          
+            <Button size="lg" onClick={()=> {
+              window.location.hash = "#new";
+              window.location.reload();
+            }}>
               <HugeiconsIcon icon={Plus} />
               Create New{" "}
             </Button>
-          </Link>
+         
         </div>
       </nav>
     </header>

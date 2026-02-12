@@ -15,6 +15,8 @@ export default function OnChangeWrapper({ onChange }: OnChangeWrapperProps) {
       if (onChange) {
         editorState.read(() => {
           const markdown = $convertToMarkdownString(TRANSFORMERS);
+          console.log('inside', markdown);
+          
           onChange(editorState, markdown);
         });
       }
