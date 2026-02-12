@@ -20,7 +20,7 @@ function Header() {
       <nav className="mx-auto flex h-14 w-full max-w-7xl items-center justify-between md:px-4 px-2">
         <a
           className="rounded-md p-2 hover:bg-muted dark:hover:bg-muted/50"
-          href="#"
+          href="/"
         >
           <Logo />
         </a>
@@ -42,8 +42,7 @@ function Header() {
           </a>
           
             <Button size="lg" onClick={()=> {
-              window.location.hash = "#new";
-              window.location.reload();
+              window.location.assign("/");
             }}>
               <HugeiconsIcon icon={Plus} />
               Create New{" "}

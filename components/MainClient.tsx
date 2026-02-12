@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { LexicalEditor } from "./lexical-editor";
 import {
   deflateEncode,
@@ -8,12 +8,10 @@ import {
   createDeflateContent,
   type DeflateContentObjectType,
 } from "@/lib/deflate";
-import { useParams } from "next/navigation";
 
 const DEBOUNCE_MS = 300;
 
 function MainClient() {
-  const router = useParams();
   const [initialMarkdown, setInitialMarkdown] = useState<string | undefined>(
     undefined,
   );
