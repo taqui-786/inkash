@@ -11,6 +11,7 @@ import {
   QrCodeIcon,
   Download01Icon,
   Moon01Icon,
+  SparklesIcon,
 } from "@hugeicons/core-free-icons";
 
 export const metadata: Metadata = {
@@ -21,11 +22,11 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="flex-1 w-full">
-      <div className="max-w-4xl mx-auto px-4 py-12 md:py-20">
+    <div className="flex-1 mt-8 ">
+      <div className="max-w-4xl w-full mx-auto ">
         {/* Hero Section */}
         <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4 bg-linear-to-r from-primary to-blue-500 bg-clip-text text-transparent">
+          <h1 className="text-4xl md:text-6xl font-bold mb-4 text-primary">
             Inkash
           </h1>
           <p className="text-xl md:text-2xl text-muted-foreground mb-6">
@@ -38,7 +39,7 @@ export default function AboutPage() {
                 Markdown documents
               </span>{" "}
               or{" "}
-              <span className="font-semibold text-blue-500">
+              <span className="font-semibold text-primary">
                 Canvas drawings
               </span>{" "}
               — and stores everything directly in the URL.
@@ -66,9 +67,12 @@ export default function AboutPage() {
 
         {/* Features Grid */}
         <div className="mb-16">
-          <h2 className="text-3xl font-bold mb-8 text-center">
-            ✨ Key Features
-          </h2>
+          <div className="flex flex-row gap-2 mb-8 items-center justify-center">
+            <HugeiconsIcon icon={SparklesIcon} size={'32'}/>
+            <h2 className="text-3xl font-bold  text-center">
+              Key Features
+            </h2>
+          </div>
           <div className="grid md:grid-cols-2 gap-6">
             {/* High Level Markdown Editor */}
             <FeatureCard
@@ -129,7 +133,7 @@ export default function AboutPage() {
         </div>
 
         {/* CTA Section */}
-        <div className="text-center bg-linear-to-br from-primary/10 to-blue-500/10 rounded-2xl p-8 md:p-12 border border-primary/20">
+        <div className="text-center bg-linear-to-br from-primary/10 to-blue-500/10 rounded-2xl p-8 md:p-12 border border-primary/20 mb-8">
           <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Ready to Start Creating?
           </h2>
@@ -144,20 +148,7 @@ export default function AboutPage() {
           </Link>
         </div>
 
-        {/* Footer Note */}
-        <div className="mt-12 text-center text-sm text-muted-foreground">
-          <p>
-            Made with ❤️ by{" "}
-            <a
-              href="https://taqui.vercel.app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-foreground hover:underline font-medium"
-            >
-              Taqui
-            </a>
-          </p>
-        </div>
+   
       </div>
     </div>
   );

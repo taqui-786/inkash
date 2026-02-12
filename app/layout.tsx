@@ -115,7 +115,7 @@ export default function RootLayout({
         className="antialiased"
       >
         <Providers>
-          <main className="min-h-dvh h-full w-screen flex flex-col relative z-10">
+          <main className="min-h-dvh h-full w-full flex flex-col relative z-10">
             <Header />
 
             {children}
